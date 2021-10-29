@@ -1,0 +1,274 @@
+check:
+https://agilemanifesto.org/
+https://p5js.org/   (Game of life)
+https://www.educba.com/rest-vs-restful/
+https://stackoverflow.com/questions/748175/asynchronous-vs-synchronous-execution-what-is-the-main-difference
+https://www.baeldung.com/spring-bean
+https://www.kelltontech.com/kellton-tech-blog/spring-and-data-access-object-dao-part-1
+https://stackoverflow.com/questions/24990400/spring-dao-vs-spring-orm-vs-spring-jdbc
+https://stackoverflow.com/questions/39890849/what-exactly-is-field-injection-and-how-to-avoid-it
+
+
+VERY IMPORTANT:
+HATEOAS
+controllers
+services
+JPA
+
++ JUST FOR FUN: INTRODUCTION TO MICROSERVICES / DOCKER
+
+
+
+Refactor: ristrukturim i kodit / ndarje ne pjese me te vogla te pavarura / rregullim i pjeseve qe mund te behen me mire
+
+
+Web Service - Software system designed to support interoperable machine-to-machine(or application-to-application) interaction over a network.
+3 keys:
+- Designed for machine-to-machine (or application-to-application) 
+- Interoperable = platform independent
+- Should allow communication over a network
+
+=> The request and response should be platform independent. They should be in formats which are supported by all different kinds of platforms.
+=> Two most popular formats for request and response: XML & JSON.
+
+Service Provider/Server - emertimi i Service-it
+Serrvice Consumer/Client - Aplikacioni qe dergon request dhe merr response nga service-i 
+
+Web Service Groups:
+=> SOAP-based (kane strukture formatin XML)(Simple Object Access Protocol)
+=> REST-styled (perdor metodat e HTTP: GET, POST, PUT, FETCH, etj si dhe status codes of http: 200 (ok), 404(error, etj)
+
+*SOAP & REST are not comparable model-for-model/direct because :
+- SOAP is a format of XML
+- REST is an architecturail style
+
+WADL - Web Application Definition Language
+
+Pse Java nuk ka hot-reload?
+=> Sepse eshte gjuhe e kompiluar. Pasi kodi kompilohet, behet build (jar files). Ndersa JavaScript dhe PHP jane gjuhe te interpretuara, qe ekzekutohen ne browser (Client)
+=> JavaScript is run in the Client (i.e. the browser). So JavaScript runs after the response from the server has arrived.
+
+ORM: https://stackoverflow.com/questions/1279613/what-is-an-orm-how-does-it-work-and-how-should-i-use-one
+JPA: https://www.javatpoint.com/jpa-introduction
+
+The Java Persistence API (JPA) is a specification of Java.
+It is used to persist data between Java object and relational database. 
+JPA acts as a bridge between object-oriented domain models and relational database systems.
+
+Controller - presantation layer -  i mundeson paleve te treta komunikimin
+
+
+!
+!    SOLID Design Patterns
+!
+==>  https://www.digitalocean.com/community/conceptual_articles/s-o-l-i-d-the-first-five-principles-of-object-oriented-design
+
+
+SOLID stands for:
+
+S - Single-responsiblity Principle
+O - Open-closed Principle
+L - Liskov Substitution Principle
+I - Interface Segregation Principle
+D - Dependency Inversion Principle
+
+S - A class should have one and only one reason to change, meaning that a class should have only one job.
+O - Objects or entities should be open for extension but closed for modification.
+L - Every subclass or derived class should be substitutable for their base or parent class.
+I - A client should never be forced to implement an interface that it doesn’t use, or clients shouldn’t be forced to depend on methods they do not use.
+D - Entities must depend on abstractions, not on concretions. It states that the high-level module must not depend on the low-level module, but they should depend on abstractions.
+
+MENYRA 2 per te perdorur servisin: 
+DEPENDENCY INJECTION  &  AUTO WIRED
+-> kur e kalon servisin si parameter ne konstrukor quhet  DI (DEPENDENCY INJECTION)
+-> kur e mappon ne service cointainer (IOC CONTAINER- Inversion of Control CONTAINER) me @AutoWired quhet AUTO WIRED
+
+=> menyra me e mire eshte DI sepse e ngarkon servisin vetem te nje klase e caktuar, ndersa AUTO WIRED e ngarkon serverin 
+
+PHP vs JAVA
+- PHP nuk eshte e kompiluar, eshte gjuhe asinkrone, mund te besh ekzekutime kodi ne pjese te vecuara
+- Java eshte gjuhe e kompiluar, dhe kur i ben build kodit aplikacioni behet nje (si nje kokerr solide) dhe ekzekutohen i gjithe kodi ne menyre sinkrone
+
+MVC
+Controller - presantation layer -  i mundeson paleve te treta komunikimin
+NE ANGULAR: .TS = CONTROLLERI
+
+Get vs Post
+get i ka te dhenat ne url , me i shpejte, me pak i sigurte
+post i ka ne body
+
+15.
+
+When we create a REST service we need to two things:
+1. Method (get, post, etc)
+2. URI - Uniform resource identifier (psh:  /hello-world)
+
+(Annotations)
+3. @RestConntroller
+4. Then create mapping (@GetMapping)
+
+"We mapped GET request to this URI, to this method"
+
+URI vs URL
+URI - Uniform resource identifier  (example: your name)
+URL - Uniform resource locator   (example: your address)
+
+17.
+servlet dispatcher
+serlet - an applet that runs on a server, typically within Java.
+applet - a very small application, especially a utility program performing one or a few simple functions.
+dispatch - dergoj / send / send off
+
+Mapping servlet: 'dispatcherServlet' to [/]
+
+dispatcher Servlet 
+- handles all the request
+- is the root of web application
+- pattern: front controller
+- is the the front controller for spring web MVC framework
+
+MVC - model view controller
+model = entity (si ne databaze)
+view = pjesa qe shihet (html,css)
+controller = presantation layer -  i mundeson paleve te treta komunikimin (file-i .ts ne angular. Merr kerkesen nga klienti dhe ja dergon servisit per te perpunuar, dhe rezultatin qe kthen servisi ja kthen klientit (perdoruesit))
+
+RuntimeException - nuk e ndalon ekzekutimin
+
+HATEOAS - Hypermedia as the Engine of Application State
+=> links and buttons to see related data.
+- per te pare veprimet qe mund te kryehen me te dhenat qe kemi
+(psh: pervec nje useri te kthehet dhe linku per te pare te gjithe userat)
+
+EntityModel - A simple class wrapping a domain object and allows adding links to it.
+
+Ranga:"I had a great time living in Netherlands for a few years earlier." xp (internationalization 3:39)
+
+Internationalization - Internationalization is a mechanism to create such an application that can be adapted to different languages and regions. 
+
+----- BEANS ----
+dokumentacioni: "In Spring, the objects that form the backbone of your application and that are managed by the Spring IoC container are called beans. 
+A bean is an object that is instantiated, assembled, and otherwise managed by a Spring ----->IoC container<----.
+-- A bean is an object that is instantiated, assembled, and otherwise managed by a Spring IoC container. Otherwise, a bean is simply one of many objects in your application."
+
+--> Inversion of Control (IoC) is a process in which an object defines its dependencies without creating them. 
+-> class gets a @Component annotation
+
+=====When a Spring IoC container constructs objects of those types, all the objects are 
+called Spring ----beans----, as they are managed by the IoC container.======
+
+Klajdi: "Beans-et jane konfigurime qe i duhen aplikacionit globalisht" 
+(zakonisht konfigurohen me @AutoWired por jo gjithmone, mund ti shtosh dhe me DI)
+
+REST APIs have:
+- resources : a user
+- representations : user's JSON
+
+Content Negotiation: changing the representation as the client wants (JSON, XML, etc)
+-> headers->key->accept->value->JSON/XML/etc 
+-> negotiation between producer and consumer about the representation of the resources
+
+===>>> Every entity has a controller
+===>>> REST CONTROLLER: @RestController
+
+SWAGGER- tool to explore the API documentation
+(api-application programming interface)
+-->> http://localhost:8080/swagger-ui.html
+-->> http://localhost:8080/v3/api-docs
+
+Actuator - tool to monitor the application
+Definition-> An actuator is a manufacturing term that refers to a mechanical device for moving or controlling something. Actuators can generate a large amount of motion from a small change.
+
+HAL explorer - tool to explore rest APIs (endpoints)
+
+Filtering - Showing only certain fields in the response 
+
+VERSIONING (e.g .../v1/...)
+API versioning is the practice of transparently managing changes to your API. 
+Versioning is effective communication around changes to your API, so consumers know what to expect from it. 
+You are delivering data to the public in some fashion and you need to communicate when you change the way that data is delivered.
+
+JPA
+The Java Persistence API (JPA) is a specification of Java.
+It is used to persist(continue/carry on/hold) data between Java object and relational database. 
+JPA acts as a bridge between object-oriented domain models and relational database systems. 
+As JPA is just a specification, it doesn't perform any operation by itself.
+
+Entity is managed by JPA
+Repository talks to database
+
+JPA VS HIBERNATE (lesson 235)
+JPA is an API
+Hibernate is one of the most popular ORM frameworks
+
+JPA provides a ---mapping---between classes(objects) and database tables.
+
+JPA defines:
+-> how do you define entities
+-> how do you map attributes
+-> how do you map relationships between entites 
+-> who manages the entities
+
+=> What JPA defines, Hibernate implements.
+ 
+Repository indicates something which interacts with the database.(a dao service - to manage te entity)
+A repository is a mechanism for encapsulating storage, retrieval, and search behavior which emulates a collection of objects. 
+-->> K.SH: Repository sherben per te bere query 
+
+Spring DAO(Data Access Object): is an object that provides an abstract interface to JDBC implementation frameworks
+i.e. Spring DAO is generalized concept to access JDBC and Hibernate, MyBatis, JPA, JDO using it's individual Support classes.
+
+1 entitet ka 4 file:
+veten e vet
+repositoryn
+controllerin
+servisin
+
+CREATE TABLE EMPLOYEE(
+	employee_id int NOT NULL PRIMARY KEY,
+	employee_name varchar(40),
+	employee_salary int,
+	employee_age int
+)
+
+SELECT * FROM public.EMPLOYEE
+
+INSERT INTO EMPLOYEE (employee_id, employee_name, employee_salary, employee_age)
+VALUES('1', 'John Doe','25000','30' );
+
+Class Map ObjectString---->>>> Per te shtuar te gjithe responset ne nje format te caktuar: (@ResponseEntity)
+
+//     public ResponseEntity<?> findAllEmployees() {
+//        return ResponseEntity.ok("ok");
+//     }
+
+psh:
+{
+    "status": "success",
+    "data": {
+        "name": "test",
+        "salary": "123",
+        "age": "23",
+        "id": 25
+    }
+}
+
+--> Shpesh serviset quhet DaoService (data access object) sepse sherbejne per te aksesuas databazen nepermjet repositoryt
+
+
+SELECT * FROM public.EMPLOYEE
+
+INSERT INTO EMPLOYEE (id, employee_name, employee_salary, employee_age)
+VALUES('1', 'John Doe','25000','30' );
+
+INSERT INTO EMPLOYEE (id, employee_name, employee_salary, employee_age)
+VALUES('2', 'filan Fisteku','17000','25' );
+
+DELETE FROM EMPLOYEE 
+WHERE id='7';
+
+
+employees   OK
+employee/1  OK
+create      OK (merr numrin e sakt te employees)
+delete/1    
+update/1
