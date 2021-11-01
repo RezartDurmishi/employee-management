@@ -255,20 +255,42 @@ psh:
 --> Shpesh serviset quhet DaoService (data access object) sepse sherbejne per te aksesuas databazen nepermjet repositoryt
 
 
-SELECT * FROM public.EMPLOYEE
+------------------------------DATABASE------------------------------------------------------
+
+DROP TABLE EMPLOYEE;
+
+
+CREATE TABLE EMPLOYEE(
+	id int NOT NULL PRIMARY KEY,
+	employee_name varchar(40),
+	employee_salary int,
+	employee_age int
+)
+
+
+-- Auto increment of id
+create sequence employee_id_seq
+	as integer;
+
+alter table employee alter column id set default nextval('public.employee_id_seq'::regclass);
+
+alter sequence employee_id_seq owned by employee.id;
+
 
 INSERT INTO EMPLOYEE (id, employee_name, employee_salary, employee_age)
 VALUES('1', 'John Doe','25000','30' );
-
 INSERT INTO EMPLOYEE (id, employee_name, employee_salary, employee_age)
-VALUES('2', 'filan Fisteku','17000','25' );
+VALUES('2', 'Tomas M','37000','24' );
+INSERT INTO EMPLOYEE (id, employee_name, employee_salary, employee_age)
+VALUES('3', 'Morgan Freeman','72000','100' );
 
 DELETE FROM EMPLOYEE 
-WHERE id='7';
+WHERE id='2';
 
+---------------------------------------------------------------------------------------------------------
 
 employees   OK
 employee/1  OK
 create      OK (merr numrin e sakt te employees)
-delete/1    
-update/1
+delete/1    OK
+update/1    OK
