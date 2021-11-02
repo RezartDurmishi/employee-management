@@ -6,6 +6,7 @@ import com.employee.management.service.EmployeeService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
 public class EmployeeController {
@@ -25,33 +26,43 @@ public class EmployeeController {
         );
     }
 
-    @PostMapping("/create")
-    public Employee addEmployee(@RequestBody Employee employee) {
-        return employeeService.saveEmployee(employee);
+    @GetMapping("/employee/{id}")
+    public ResponseEntity<Object> getEmployeeById(@PathVariable Integer id) {
+        return RestResponseMapper.generateResponse(
+                "success",
+                HttpStatus.OK,
+                this.employeeService.getEmployeeById(id)
+        );
     }
 
-    @GetMapping("/employee/{id}")
-    public Employee getEmployeeById(@PathVariable Integer id) {
-        return employeeService.getEmployeeById(id);
+//    @PostMapping("/create")
+//    public Employee addEmployee(@RequestBody Employee employee) {
+//        return employeeService.saveEmployee(employee);
+//    }
+
+    @PostMapping("/create")
+    public ResponseEntity<Object> addEmployee(@RequestBody Employee employee) {
+        return RestResponseMapper.generateResponse(
+                "success",
+                HttpStatus.OK,
+                this.employeeService.saveEmployee(employee)
+        );
     }
 
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> deleteUser(@PathVariable Integer id) {
-
-        try {
-            employeeService.deleteEmployee(id);
-        } catch (Exception e) {
-//            log.error(e.getMessage());
-            return ResponseEntity.accepted().body(e.getMessage());
-        }
-
-        return ResponseEntity.accepted().body("User Deleted Successfully");
+        return RestResponseMapper.generateResponse(
+                "success",
+                HttpStatus.OK,
+                this.employeeService.deleteEmployee(id)
+        );
     }
 
 
     @PutMapping("update/{id}")
-    public Employee updateEmployee(@PathVariable Integer id, @RequestBody Employee employee) throws Exception {
+    public ResponseEntity<?> updateEmployee(@PathVariable Integer id, @RequestBody Employee employee) throws Exception {
         Employee existingEmployee = employeeService.getEmployeeById(id);
+
         if (existingEmployee == null) {
             throw new Exception("User Not Found");
         }
@@ -59,6 +70,11 @@ public class EmployeeController {
         existingEmployee.setSalary(employee.getSalary());
         existingEmployee.setAge(employee.getAge());
 
-        return employeeService.updateEmployee(existingEmployee);
+        return RestResponseMapper.generateResponse(
+                "success",
+                HttpStatus.OK,
+                this.employeeService.updateEmployee(existingEmployee)
+        );
+
     }
 }

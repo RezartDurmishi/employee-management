@@ -20,6 +20,7 @@ public class Employee {
     @JsonProperty("employee_name")
     private String name;
 
+
     @Column(name = "employeeSalary")
     @JsonProperty("employee_salary")
     private double salary;

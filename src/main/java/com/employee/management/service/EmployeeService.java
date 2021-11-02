@@ -31,8 +31,9 @@ public class EmployeeService {
     }
 
 
-    public void deleteEmployee(Integer id) {
+    public Object deleteEmployee(Integer id) {
       repository.deleteById(id);
+        return id;
     }
 
     public Employee getEmployeeById(Integer id) {
