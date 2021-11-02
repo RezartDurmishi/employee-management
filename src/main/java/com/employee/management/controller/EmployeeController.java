@@ -35,11 +35,6 @@ public class EmployeeController {
         );
     }
 
-//    @PostMapping("/create")
-//    public Employee addEmployee(@RequestBody Employee employee) {
-//        return employeeService.saveEmployee(employee);
-//    }
-
     @PostMapping("/create")
     public ResponseEntity<Object> addEmployee(@RequestBody Employee employee) {
         return RestResponseMapper.generateResponse(
