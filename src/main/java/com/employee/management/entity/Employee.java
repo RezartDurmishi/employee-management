@@ -1,5 +1,6 @@
 package com.employee.management.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -12,16 +13,19 @@ import javax.persistence.*;
 public class Employee {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
-    @Column(name = "employee_name")
+    @Column(name = "employeeName")
+    @JsonProperty("employee_name")
     private String name;
 
-    @Column(name = "employee_salary")
+    @Column(name = "employeeSalary")
+    @JsonProperty("employee_salary")
     private double salary;
 
-    @Column(name = "employee_age")
+    @Column(name = "employeeAge")
+    @JsonProperty("employee_age")
     private int age;
 
 }

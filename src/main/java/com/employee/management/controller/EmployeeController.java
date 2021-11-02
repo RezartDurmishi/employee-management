@@ -1,47 +1,64 @@
 package com.employee.management.controller;
 
 import com.employee.management.entity.Employee;
+import com.employee.management.mappers.RestResponseMapper;
 import com.employee.management.service.EmployeeService;
-//import org.springframework.http.ResponseEntity;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-//import java.util.HashMap;
-//import java.util.Map;
-
-import java.util.List;
 
 @RestController
 public class EmployeeController {
 
-    private final EmployeeService service;
+    private final EmployeeService employeeService;
 
-    public EmployeeController(EmployeeService service) {
-        this.service = service;
+    public EmployeeController(EmployeeService employeeService) {
+        this.employeeService = employeeService;
     }
 
     @GetMapping("/employees")
-    public List<Employee> findAllEmployees() {
-        return service.getEmployees();
+    public ResponseEntity<Object> findAllEmployees() {
+        return RestResponseMapper.generateResponse(
+                "success",
+                HttpStatus.OK,
+                this.employeeService.getEmployees()
+        );
     }
 
     @PostMapping("/create")
     public Employee addEmployee(@RequestBody Employee employee) {
-        return service.saveEmployee(employee);
+        return employeeService.saveEmployee(employee);
     }
 
     @GetMapping("/employee/{id}")
-    public Employee findEmployeeById(@PathVariable int id) {
-        return service.getEmployeeById(id);
+    public Employee getEmployeeById(@PathVariable Integer id) {
+        return employeeService.getEmployeeById(id);
     }
 
     @DeleteMapping("/delete/{id}")
-    public void deleteEmployee(@PathVariable int id) {
-        service.deleteEmployee(id);
+    public ResponseEntity<?> deleteUser(@PathVariable Integer id) {
+
+        try {
+            employeeService.deleteEmployee(id);
+        } catch (Exception e) {
+//            log.error(e.getMessage());
+            return ResponseEntity.accepted().body(e.getMessage());
+        }
+
+        return ResponseEntity.accepted().body("User Deleted Successfully");
     }
 
-    @PutMapping("/update/{id}")
-    public Employee updateEmployee(@RequestBody Employee employee) {
-        return service.updateEmployee(employee);
-    }
 
+    @PutMapping("update/{id}")
+    public Employee updateEmployee(@PathVariable Integer id, @RequestBody Employee employee) throws Exception {
+        Employee existingEmployee = employeeService.getEmployeeById(id);
+        if (existingEmployee == null) {
+            throw new Exception("User Not Found");
+        }
+        existingEmployee.setName(employee.getName());
+        existingEmployee.setSalary(employee.getSalary());
+        existingEmployee.setAge(employee.getAge());
+
+        return employeeService.updateEmployee(existingEmployee);
+    }
 }
