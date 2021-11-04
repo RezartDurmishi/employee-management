@@ -1,0 +1,32 @@
+Select * from EMPLOYEE;
+
+DROP TABLE EMPLOYEE;
+
+
+CREATE TABLE EMPLOYEE(
+	id int NOT NULL PRIMARY KEY,
+	employee_name varchar(40),
+	employee_salary int,
+	employee_age int
+)
+
+
+-- Auto increment of id
+create sequence employee_id_seq
+	as integer;
+
+alter table employee alter column id set default nextval('public.employee_id_seq'::regclass);
+
+alter sequence employee_id_seq owned by employee.id;
+
+
+INSERT INTO EMPLOYEE (id, employee_name, employee_salary, employee_age)
+VALUES('1', 'John Doe','25000','30' );
+INSERT INTO EMPLOYEE (id, employee_name, employee_salary, employee_age)
+VALUES('2', 'Tomas M','37000','24' );
+INSERT INTO EMPLOYEE (id, employee_name, employee_salary, employee_age)
+VALUES('3', 'Morgan Freeman','72000','100' );
+
+
+DELETE FROM EMPLOYEE 
+WHERE id='2';
