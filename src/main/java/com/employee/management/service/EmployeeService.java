@@ -1,22 +1,15 @@
 package com.employee.management.service;
 
-import com.employee.management.employeeRepository.EmployeeRepository;
 import com.employee.management.entity.Employee;
-//import org.springframework.beans.factory.annotation.Autowired;
+import com.employee.management.repository.EmployeeRepository;
 import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
 import java.util.List;
 
-@Transactional
 @Service
 public class EmployeeService {
     private final EmployeeRepository repository;
 
-    /*
-        @Autowired
-        private EmployeeRepository repository;
-    */
     public EmployeeService(EmployeeRepository repository) {
         this.repository = repository;
     }
@@ -31,13 +24,13 @@ public class EmployeeService {
     }
 
 
-    public Object deleteEmployee(Integer id) {
+    public Object deleteEmployee(Long id) {
       repository.deleteById(id);
         return id;
     }
 
-    public Employee getEmployeeById(Integer id) {
-        return repository.findById(id).orElse(null);
+    public Employee getEmployeeById(Long id) {
+        return this.repository.findById(id).orElse(null);
     }
 
     public Employee updateEmployee(Employee employee) {

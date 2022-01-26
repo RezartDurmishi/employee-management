@@ -6,15 +6,17 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
+/**
+ * Employee entity.
+ */
 @Entity
 @Getter
 @Setter
 @Table(name = "employee")
 public class Employee {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     @Column(name = "employeeName")
     @JsonProperty("employee_name")
