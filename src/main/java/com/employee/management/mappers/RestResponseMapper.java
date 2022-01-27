@@ -7,6 +7,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class RestResponseMapper {
+
+    private RestResponseMapper(){
+        //private constructor to hide the implicit public one
+    }
+
     public static ResponseEntity<Object> map(String statusText, HttpStatus status, Object responseObj, String message) {
         Map<String, Object> map = new HashMap<>();
         map.put("status", statusText);
