@@ -18,16 +18,16 @@ public class Employee {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "employeeName")
+    @Column(name = "employeeName", nullable = false)
     @JsonProperty("employee_name")
     private String name;
 
 
-    @Column(name = "employeeSalary")
+    @Column(name = "employeeSalary", nullable = false)
     @JsonProperty("employee_salary")
     private double salary;
 
-    @Column(name = "employeeAge")
+    @Column(name = "employeeAge", nullable = false)
     @JsonProperty("employee_age")
     private int age;
 
