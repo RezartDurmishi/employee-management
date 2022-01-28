@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 import static com.employee.management.constants.Messages.*;
@@ -58,7 +59,7 @@ public class EmployeeController {
 
 
     @PutMapping("update/{id}")
-    public ResponseEntity<Object> updateEmployee(@PathVariable Long id, @RequestBody EmployeeRequest employeeRequest) {
+    public ResponseEntity<Object> updateEmployee(@PathVariable Long id, @RequestBody @Valid EmployeeRequest employeeRequest) {
         Employee employee = this.employeeService.getEmployeeById(id);
         if (employee == null) {
             return RestResponseMapper.map(FAIL, HttpStatus.NOT_FOUND, null, NOT_FOUND);
