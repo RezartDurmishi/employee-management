@@ -24,16 +24,16 @@ public class EmployeeService {
     }
 
 
-    public Object deleteEmployee(Long id) {
+    public void deleteEmployee(Long id) {
       repository.deleteById(id);
-        return id;
     }
 
     public Employee getEmployeeById(Long id) {
         return this.repository.findById(id).orElse(null);
     }
 
-    public Employee updateEmployee(Employee employee) {
+    public Employee updateEmployee(Employee employee, Long id) {
+        employee.setId(id);
         return repository.save(employee);
     }
 }

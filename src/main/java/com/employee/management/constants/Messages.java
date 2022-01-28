@@ -13,5 +13,6 @@ public class Messages {
     public static final String SUCCESS = "success";
     public static final String FAIL = "failed!";
     public static final String NOT_FOUND = "Not Found!";
+    public static final String INTERNAL_SERVER_ERROR = "INTERNAL SERVER ERROR!";
 
 }
