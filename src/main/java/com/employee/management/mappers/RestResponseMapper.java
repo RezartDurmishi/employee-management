@@ -11,7 +11,7 @@ import java.util.Map;
  */
 public class RestResponseMapper {
 
-    private RestResponseMapper(){
+    private RestResponseMapper() {
         //private constructor to hide the implicit public one
     }
 

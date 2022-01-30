@@ -18,6 +18,7 @@ public class EmployeeService {
 
     /**
      * Dependency injection
+     *
      * @param repository
      */
     public EmployeeService(EmployeeRepository repository) {
@@ -26,6 +27,7 @@ public class EmployeeService {
 
     /**
      * List employees
+     *
      * @return
      */
     public List<Employee> list() {
@@ -34,6 +36,7 @@ public class EmployeeService {
 
     /**
      * Get employee by id
+     *
      * @param id
      * @return
      */
@@ -43,6 +46,7 @@ public class EmployeeService {
 
     /**
      * Save employee
+     *
      * @param employee
      * @return
      */
@@ -52,14 +56,16 @@ public class EmployeeService {
 
     /**
      * Delete employee
+     *
      * @param id
      */
     public void delete(Long id) {
-      repository.deleteById(id);
+        repository.deleteById(id);
     }
 
     /**
      * Update employee
+     *
      * @param employee
      * @param id
      * @return
