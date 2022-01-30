@@ -2,17 +2,22 @@ package com.employee.management.request;
 
 import lombok.Data;
 
-import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import java.math.BigDecimal;
 
+/**
+ * DTO class
+ */
 @Data
 public class EmployeeRequest {
 
-    @NotBlank(message = "Employee name is required!")
+    @NotEmpty(message = "Employee name is required!")
     private String name;
 
-    @NotBlank(message = "Employee salary is required!")
-    private double salary;
+    @NotNull(message = "Employee salary is required!")
+    private BigDecimal salary;
 
-    @NotBlank(message = "Employee age is required!")
-    private int age;
+    @NotNull(message = "Employee age is required!")
+    private Long age;
 }

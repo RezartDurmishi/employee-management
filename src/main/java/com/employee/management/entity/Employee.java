@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 
 /**
  * Employee entity.
@@ -25,10 +26,10 @@ public class Employee {
 
     @Column(name = "employeeSalary", nullable = false)
     @JsonProperty("employee_salary")
-    private double salary;
+    private BigDecimal salary;
 
     @Column(name = "employeeAge", nullable = false)
     @JsonProperty("employee_age")
-    private int age;
+    private Long age;
 
 }

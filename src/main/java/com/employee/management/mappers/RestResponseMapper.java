@@ -6,6 +6,9 @@ import org.springframework.http.ResponseEntity;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Response mapper
+ */
 public class RestResponseMapper {
 
     private RestResponseMapper(){
